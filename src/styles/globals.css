@@ -1,0 +1,80 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  --background: #ffffff;
+  --foreground: oklch(0.145 0 0);
+  --border: rgba(0, 0, 0, 0.1);
+  --ring: oklch(0.708 0 0);
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  /* Custom font family for SF UI Display */
+  --font-sf-ui-display: "SF UI Display", sans-serif;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Global paragraph styling matching MainCard */
+  p {
+    @apply font-semibold text-[15px] text-black leading-[1.5] tracking-[0.45px];
+    font-family: var(--font-sf-ui-display);
+  }
+
+  /* ChatSidebar paragraph style – smaller font size */
+  .chat-paragraph {
+    @apply font-semibold text-[13px] text-black leading-[1.5] tracking-[0.45px];
+    font-family: var(--font-sf-ui-display);
+  }
+}
+
+/* Component‑specific utilities extracted from MainCard */
+@layer components {
+  .main-card {
+    @apply relative grow shrink-0 basis-0 min-w-0 h-full rounded-[32px] overflow-hidden flex flex-col items-center;
+  }
+
+  .main-card-bg {
+    @apply absolute inset-0 pointer-events-none;
+  }
+
+  .main-card-content {
+    @apply relative w-full h-full overflow-y-auto no-scrollbar;
+  }
+
+  .main-card-avatar {
+    @apply relative rounded-[99px] shrink-0 size-[37px];
+  }
+
+  .main-card-menu p {
+    @apply font-semibold text-[15px] text-black tracking-[0.45px] cursor-pointer hover:text-black transition-colors;
+  }
+
+  .main-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    font-family: var(--font-sf-ui-display);
+  }
+
+  .main-card-subtitle {
+    @apply font-bold text-[15px] text-zinc-400 tracking-[0.45px] leading-[1.5];
+    font-family: var(--font-sf-ui-display);
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
