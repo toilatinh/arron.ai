@@ -59,8 +59,9 @@
     @apply relative rounded-[99px] shrink-0 size-[37px];
   }
 
-  .main-card-menu p {
-    @apply font-semibold text-[15px] text-black tracking-[0.45px] cursor-pointer hover:text-black transition-colors;
+  .main-card-menu a {
+    @apply font-semibold text-[15px] tracking-[0.45px] cursor-pointer hover:text-black transition-colors;
+    font-family: var(--font-sf-ui-display);
   }
 
   .main-card-title {

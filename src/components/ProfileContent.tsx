@@ -3,11 +3,11 @@ import img17252891567881 from "figma:asset/6f425ab7a2319fc065c66c69e67abde5cdbaf
 
 function HeaderMenu() {
   return (
-    <div className="content-stretch flex font-['SF_UI_Display:Medium',sans-serif] gap-[12px] items-center justify-end leading-[1.5] not-italic relative shrink-0 text-[15px] text-nowrap text-right text-zinc-400 tracking-[0.45px] whitespace-pre">
-      <p className="relative shrink-0 cursor-pointer hover:text-black transition-colors">Resume</p>
-      <p className="relative shrink-0 cursor-pointer hover:text-black transition-colors">Thoughts</p>
-      <p className="relative shrink-0 cursor-pointer hover:text-black transition-colors">Playground</p>
-      <p className="relative shrink-0 cursor-pointer hover:text-black transition-colors">Linkedin</p>
+    <div className="content-stretch flex font-['SF_UI_Display'] gap-[12px] items-center justify-end leading-[1.5] not-italic relative shrink-0 text-[15px] text-nowrap text-right text-zinc-400 tracking-[0.45px] whitespace-pre">
+      <a href="https://drive.google.com/file/d/10xFeXzz7nBeD9DeeA03Ox0jqFnbsZWh2/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="relative shrink-0 cursor-pointer hover:text-black transition-colors">Resume</a>
+      <a href="https://medium.com/@aarontn" target="_blank" rel="noopener noreferrer" className="relative shrink-0 cursor-pointer hover:text-black transition-colors">Thoughts</a>
+      <a href="https://dribbble.com/toilatinhs" target="_blank" rel="noopener noreferrer" className="relative shrink-0 cursor-pointer hover:text-black transition-colors">Playground</a>
+      <a href="https://www.linkedin.com/in/aarontinh/" target="_blank" rel="noopener noreferrer" className="relative shrink-0 cursor-pointer hover:text-black transition-colors">Linkedin</a>
     </div>
   );
 }

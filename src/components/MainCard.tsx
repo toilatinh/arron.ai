@@ -60,11 +60,11 @@ export function MainCard({ isSidebarOpen, onOpenSidebar, inputValue, setInputVal
           </div>
 
           {/* Menu */}
-          <div className="flex w-full main-card-menu gap-[12px] items-center justify-start leading-[1.5] text-[15px] text-left text-zinc-400 tracking-[0.45px]">
-            <p className="cursor-pointer hover:text-black transition-colors">Resume</p>
-            <p className="cursor-pointer hover:text-black transition-colors">Thoughts</p>
-            <p className="cursor-pointer hover:text-black transition-colors">Playground</p>
-            <p className="cursor-pointer hover:text-black transition-colors">Linkedin</p>
+          <div className="flex w-full main-card-menu gap-[12px] items-center justify-start leading-[1.5] text-[15px] text-left text-zinc-400 tracking-[0.45px] font-['SF_UI_Display']">
+            <a href="https://drive.google.com/file/d/10xFeXzz7nBeD9DeeA03Ox0jqFnbsZWh2/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Resume</a>
+            <a href="https://medium.com/@aarontn" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Thoughts</a>
+            <a href="https://dribbble.com/toilatinhs" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Playground</a>
+            <a href="https://www.linkedin.com/in/aarontinh/" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Linkedin</a>
           </div>
 
           {/* Name & Title */}
@@ -172,7 +172,7 @@ export function MainCard({ isSidebarOpen, onOpenSidebar, inputValue, setInputVal
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           placeholder="Ask me anything..."
-          className="bg-transparent border-none outline-none w-full mr-2 placeholder:text-black/50 text-[15px] font-medium font-['SF_UI_Display']"
+          className="bg-transparent border-none outline-none w-full mr-2 placeholder:text-black/50 text-[15px] font-medium font-[var(--font-sf-ui-display)]"
           onKeyDown={(e) => {
             if (e.key === "Enter" && inputValue.trim()) {
               e.preventDefault();
