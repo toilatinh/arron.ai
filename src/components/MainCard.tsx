@@ -61,7 +61,7 @@ export function MainCard({ isSidebarOpen, onOpenSidebar, inputValue, setInputVal
 
           {/* Menu */}
           <div className="flex w-full main-card-menu gap-[12px] items-center justify-start leading-[1.5] text-[15px] text-left text-zinc-400 tracking-[0.45px] font-['SF_UI_Display']">
-            <a href="https://drive.google.com/file/d/10xFeXzz7nBeD9DeeA03Ox0jqFnbsZWh2/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Resume</a>
+            <a href="https://drive.google.com/file/d/1i5EAqfELpZBT3nNpB9rFuvh0qIANjgNf/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Resume</a>
             <a href="https://medium.com/@aarontn" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Thoughts</a>
             <a href="https://dribbble.com/toilatinhs" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Playground</a>
             <a href="https://www.linkedin.com/in/aarontinh/" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Linkedin</a>
@@ -99,7 +99,7 @@ export function MainCard({ isSidebarOpen, onOpenSidebar, inputValue, setInputVal
             </p>
 
             <p>
-              My most recent chapter began in 2023, when I joined the Murror AI
+              My most recent chapter began in 2023, when I joined the <a href="https://aaron-ng.framer.ai/murror" target="_blank" rel="noopener noreferrer" style={{ color: "#FF7300" }}>Murror AI </a>
               with a mission to help young people through self-discovery and
               depression prevention. I lead AI behavior design, shaping how the
               AI thinks, speaks, and interacts as a supportive companion. This
@@ -107,17 +107,16 @@ export function MainCard({ isSidebarOpen, onOpenSidebar, inputValue, setInputVal
               early PMF signals.
             </p>
             <p>
-              Before that, I worked at One Mount, where I owned the Voucher
+              Before that, I worked at One Mount, where I owned the <a href="https://aaron-ng.framer.ai/voucher" target="_blank" rel="noopener noreferrer" style={{ color: "#0077FF" }}>Voucher </a>
               domain in the VinID (now OneU) app, serving millions of users. I
               contributed across the full product cycle—research, usability
-              testing, interviews, UI, and measurement. I also led the Loyalty
-              Operation project between Techcombank and VinID and built
+              testing, interviews, UI, and measurement. I also led the <a href="https://aaron-ng.framer.ai/om_portal" target="_blank" rel="noopener noreferrer" style={{ color: "#FF006F" }}>Loyalty Operation</a> project between Techcombank and VinID and built
               cross-team design processes for squads in both the North and
               South.
             </p>
             <p>
               Earlier in my career, at age 20, I became a Product Designer at
-              Pixie, where I built a mentoring platform that connected learners
+              <a href="https://www.linkedin.com/company/pixiegroup/posts/?feedView=all" target="_blank" rel="noopener noreferrer" style={{ color: "#08B119" }}> Pixie</a>, where I built a mentoring platform that connected learners
               with industry mentors.
             </p>
             <p>
