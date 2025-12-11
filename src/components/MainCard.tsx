@@ -61,7 +61,7 @@ export function MainCard({ isSidebarOpen, onOpenSidebar, inputValue, setInputVal
 
           {/* Menu */}
           <div className="flex w-full main-card-menu gap-[12px] items-center justify-start leading-[1.5] text-[15px] text-left text-zinc-400 tracking-[0.45px] font-['SF_UI_Display']">
-            <a href="https://drive.google.com/file/d/1i5EAqfELpZBT3nNpB9rFuvh0qIANjgNf/view?usp=drive_link" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Resume</a>
+            <a href="https://drive.google.com/file/d/1TQTxxMW8_lqE0LchtteMCSL95fnxhSIA/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Resume</a>
             <a href="https://medium.com/@aarontn" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Thoughts</a>
             <a href="https://dribbble.com/toilatinhs" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Playground</a>
             <a href="https://www.linkedin.com/in/aarontinh/" target="_blank" rel="noopener noreferrer" className="cursor-pointer hover:text-black transition-colors">Linkedin</a>
