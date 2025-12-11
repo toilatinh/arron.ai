@@ -155,10 +155,20 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     useEffect(() => {
         connect();
 
+        // Handle page close/reload to mark conversation as done
+        const handleBeforeUnload = () => {
+            if (socketRef.current && socketRef.current.readyState === WebSocket.OPEN) {
+                socketRef.current.close();
+            }
+        };
+
+        window.addEventListener('beforeunload', handleBeforeUnload);
+
         return () => {
             if (socketRef.current) {
                 socketRef.current.close();
             }
+            window.removeEventListener('beforeunload', handleBeforeUnload);
         };
     }, []);
 
