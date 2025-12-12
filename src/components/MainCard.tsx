@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import imgAvatar from "figma:asset/6f425ab7a2319fc065c66c69e67abde5cdbaf375.png";
 import imgOrb from "figma:asset/1c6b60c5e899670684e5f26b434d59133c0d5284.png";
 import imgCardBg from "figma:asset/cc6c0585d3f6c405ebfd49bbdaf2cb1ac8ec8487.png";
@@ -14,6 +14,13 @@ interface MainCardProps {
 
 export function MainCard({ isSidebarOpen, onOpenSidebar, inputValue, setInputValue }: MainCardProps) {
   const [isMobile, setIsMobile] = useState(false);
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+
+  const rotatingPhrases = [
+    "anything…",
+    "about my work…",
+    "about my skills…"
+  ];
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
@@ -23,6 +30,20 @@ export function MainCard({ isSidebarOpen, onOpenSidebar, inputValue, setInputVal
     mediaQuery.addEventListener("change", handler);
     return () => mediaQuery.removeEventListener("change", handler);
   }, []);
+
+  useEffect(() => {
+    console.log('Initial phrase:', rotatingPhrases[currentPhraseIndex]);
+
+    const interval = setInterval(() => {
+      setCurrentPhraseIndex((prev) => {
+        const next = (prev + 1) % rotatingPhrases.length;
+        console.log('Rotating phrase:', rotatingPhrases[next]);
+        return next;
+      });
+    }, 3000); // 700ms animation + 2300ms pause
+
+    return () => clearInterval(interval);
+  }, [rotatingPhrases.length]);
   return (
     <motion.div
       layout
@@ -51,7 +72,7 @@ export function MainCard({ isSidebarOpen, onOpenSidebar, inputValue, setInputVal
           className="box-border flex flex-col gap-[46px] items-start relative w-full max-w-7xl mx-auto"
         >
           {/* Avatar */}
-          <div className="relative rounded-[99px] shrink-0 size-[37px]">
+          <div className="relative rounded-[99px] shrink-0 size-[49px]">
             <img
               alt="Avatar"
               className="absolute inset-0 max-w-none object-cover rounded-[99px] size-full"
@@ -166,19 +187,57 @@ export function MainCard({ isSidebarOpen, onOpenSidebar, inputValue, setInputVal
         className="absolute bottom-[50px] bg-white box-border flex h-[63px] items-center justify-between pl-[24px] pr-[16px] py-[16px] rounded-[999px] border border-white/40 backdrop-blur-sm w-[334px] z-10 transition-transform"
       >
         <div aria-hidden="true" className="absolute border-2 border-[rgba(255,255,255,0.3)] border-solid inset-[-2px] pointer-events-none rounded-[1001px]" />
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Ask me anything..."
-          className="bg-transparent border-none outline-none w-full mr-2 placeholder:text-black/50 text-[15px] font-medium font-[var(--font-sf-ui-display)]"
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && inputValue.trim()) {
-              e.preventDefault();
-              onOpenSidebar();
-            }
-          }}
-        />
+
+        <div className="relative w-full mr-2 h-full flex items-center overflow-hidden">
+          <input
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder=""
+            className="bg-transparent border-none outline-none w-full text-[15px] font-semibold leading-[1.5] tracking-[0.45px] relative z-10"
+            style={{ fontFamily: 'var(--font-sf-ui-display)' }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && inputValue.trim()) {
+                e.preventDefault();
+                onOpenSidebar();
+              }
+            }}
+          />
+
+          {/* Animated Placeholder - only show when input is empty */}
+          {!inputValue && (
+            <div
+              className="absolute inset-0 flex items-center pointer-events-none text-[15px] font-semibold leading-[1.5] tracking-[0.45px] text-black/50"
+              style={{ fontFamily: 'var(--font-sf-ui-display)' }}
+            >
+              <span>Ask me&nbsp;</span>
+              <div className="relative h-[1.5em] overflow-hidden inline-block min-w-[200px]">
+                <AnimatePresence mode="wait">
+                  <motion.span
+                    key={currentPhraseIndex}
+                    initial={{ y: "100%", opacity: 0 }}
+                    animate={{
+                      y: "0%",
+                      opacity: 1
+                    }}
+                    exit={{
+                      y: "-100%",
+                      opacity: 0
+                    }}
+                    transition={{
+                      duration: 0.7,
+                      ease: [0.4, 0, 0.2, 1]
+                    }}
+                    className="block whitespace-nowrap"
+                  >
+                    {rotatingPhrases[currentPhraseIndex]}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
+            </div>
+          )}
+        </div>
+
         <div
           onClick={onOpenSidebar}
           className="relative shrink-0 size-[31px] cursor-pointer hover:scale-110 transition-transform"

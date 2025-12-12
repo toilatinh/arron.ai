@@ -153,11 +153,20 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     };
 
     useEffect(() => {
-        connect();
+        // Don't auto-connect - only connect when user sends first message
 
         // Handle page close/reload to mark conversation as done
         const handleBeforeUnload = () => {
             if (socketRef.current && socketRef.current.readyState === WebSocket.OPEN) {
+                // Send status update to ElevenLabs (no UI change)
+                try {
+                    socketRef.current.send(JSON.stringify({
+                        type: "conversation_status",
+                        status: "done"
+                    }));
+                } catch (error) {
+                    console.error("Error sending status update:", error);
+                }
                 socketRef.current.close();
             }
         };
